@@ -1,0 +1,42 @@
+<html>
+<head></head>
+<body>
+	<h1>Добавить элемент массива</h1>
+	<form  method="post">
+        <p><input name="elem">
+        <input type="submit" value="Отправить"></p>
+    </form>
+
+    {{$sliceLen := len .}}
+    {{if lt $sliceLen 5}} Длина слайса меньше 5 {{else}} Длина слайса не меньше 5 {{end}} 
+
+    {{if gt $sliceLen 1}} 
+        {{with slice . 1}}
+            {{$subsliceLen := len .}}
+            <p>Длина подслайса: {{$subsliceLen}}</p>
+            <table>
+            <tr>
+                <td>
+                    Индекс
+                </td>
+                <td>
+                    Значение
+                </td>
+            </tr>
+            {{range $key, $value := .}}
+                <tr>
+                    <td>
+                        {{$key}}
+                    </td>
+                    <td>
+                        {{$value}}
+                    </td>
+                </tr>
+            {{end}}
+            </table>
+        {{end}}
+        
+    {{end}}
+    
+</body>
+</html>

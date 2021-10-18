@@ -1,0 +1,12 @@
+<html>
+<head></head>
+<body>
+	<h1>Введите свое имя</h1>
+	<form  method="post">
+        <p><input name="name">
+        <input type="submit" value="Отправить"></p>
+    </form>
+
+    {{if .}} Привет, {{.Name}}!!! {{end}}
+</body>
+</html>
